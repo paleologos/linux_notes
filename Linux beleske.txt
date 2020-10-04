@@ -1,0 +1,132 @@
+1 VARIABLES
+	-local
+		> var1= "test"
+		> echo $var1 // test
+
+	-enviornment
+		-PATH, HOME, HISTSIZE
+		> HISTSIZE =50 //Modifikacija - reinicijalizacija varijable
+		> export var1 // pretvara lokalnu u globalnu varijablu
+		> unset var1 // brisanje varijable
+	-PATH // sadrzi lisu koja definise koje direktorijume shell da posmatra prilikom trazenja komande.
+		> path=/urs/bin/custom:$PATH  //dodavanje putanje nove aplikacije(komande) u varijabluPATH
+		> which ls // /bin/ls  // which pretrazuje PATH varijablu 
+	-HISTSIZE(broj komandi u history-u)
+	
+2 COMMANDS
+	-ALIAS
+		> alias name=command
+		> alias list = ls
+
+	-MULTIPLE COMMANDS
+		> command1;command2;command3 // svaka komanda se izvrsava nezavisno // svaka ce se izvrsiti
+		> command1 && command2 // logicko AND , ukoliko se ne izvrsi prva komanda, nece ni druga
+		> command1 || command2 // logicko OR, u zavisnosti od prve izvrsice se druga -ukoliko se izvrsi prva, nece druga
+
+
+> uname // podaci o systemu
+> whoami // info o useru
+> which // pronalazi bilo koju komandu(program)
+> whereis // locira komandu
+> locate // pronalazi bilo koji fajl ili direktorijum u sistemu
+> type	// prikazuje informacije o komandi
+> whatis // kratak opis komande
+> alias // izlistava sve aliase
+
+2.1 HELP COMMANDS
+	> man command // podaci o komandi //manual // kompletno uputstvo > man ls
+	> whatis // kratak opis komande // whatis ls
+	> info // informacije o sistemu, alatima...
+	> --help // dodatna  opcija komandi, iylistava dodatne opcije i flag-ove // ls --help // cat --help
+
+3 NAVIGATING FILE SYSTEM
+	> / -root direktorijum
+	> . -trenutni direktorijum
+	> ~ home direktorijum
+	> ls //izlistava sadrzaj trenutnog direktorijuma
+	> ls ~ // sadrzaj home dir
+	> pwd // print working directory // trenutni direktorijum
+	> cd  // change dir // promena direktorijuma
+	> cd .. // korak iznad (parent dir)
+3.1 LIST
+	>ls -l  //long listing - prikazuje tipove 
+		d - directory
+		l - symbolic link //asocira na drugi fajl -shortcut
+		s - socket // komunikacija izmedju procesa
+		p - pipe // komunikacija iymedju procesa
+		b - block file //komunikacija sa hardverom
+		c - character file // komunikacija sa hardverom
+	> ls -lh // long listing  h- human readable
+	> ls -lSh // sortiranje po velicini u human redable
+	> ls -t // sortiranje po vremenu kreiranja
+	> ls -lSr // reverzno sortiranje(po velicini)
+	GLOBING
+		> ls *.txt // svi txt fajlovi
+		> ls a* // svi fajlovi koji pocinju sa a
+		> ls [gu]* svi fajlovi koji pocinju sa g ili u  
+3.2 COPY
+	> cp [source][destination]
+	> cp -i //interaktivni mod  // u slucaju overwrite pitace Y/N
+	> cp -n // no overwrite // sprecava overwrite
+	> cp -v //verbose // ispise poruku o uspesnosti
+	COPY DIRECTORY
+	> cp -r [directory_name] // r  redundant copy 
+3.3 MOVING FILES
+	> mv [source][destination] // vaze opcije i, v, n
+3.4 RENAMIMG FILES
+	> mv example.txt newexample.txt
+3.5 REMOVING FILES
+	> rm -i file.txt // -i -interactivni mod
+3.6 REMOVING DIRECTORIES
+	rm -r [dirName] // -r -rekurzija
+3.7 CREATE FILES
+	touch [filename]
+3.8 CREATE DIRECTORY
+	mkdir [dirName]
+
+4 ARCHIVING AND COMPRESSION
+4.1 GZIP
+	COMPRESSION
+		> gzip longfile.txt // kompresuje fajl txt
+		> gzip -l longfile.txt.gzip // listanje podataka o komppresiiji
+  	DECOMPRESSION
+		> gzip -d longfile.txt.gzip
+		> gunzip longfile.txt.gzip // dekompresuje
+4.2 ARCHIVING WITH COMPRESSION
+	-tar // tape archiving // vise ulaznih i jedan izlazni fajl
+	create -  c
+	extract - x
+	list	- t
+	verbose - v
+	CREATE
+	> tar -czvf archiveName.tar.gz ./fileToArchive 
+	> tar -cjvf archiveName.tar.bz2 ./fileToArchive 
+	> zip archive.zip ./fileToArchive
+	> rar a archive.rar ./fileToArchive
+	LIST/TEST ARCHIVE
+	> tar -tzvf archiveName.tar.gz 
+	> tar -tjvf archiveName.tar.bz2 
+	> unzip  -l archive.zip
+	> unrar  -t archive.rar //test
+	> unrar  -l archive.rar // podaci
+	EXTRACT
+	> tar -czvf archiveName.tar.gz 
+	> tar -cjvf archiveName.tar.bz2 
+	> unzip   archive.zip
+	> unrar e archive.rar
+
+5 TEXT OPERATIONS
+
+	
+	
+ 	
+	
+
+
+
+	
+
+
+	
+		
+
